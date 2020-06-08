@@ -2,13 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Card } from './styles';
-
-interface UserProps {
-  name: string;
-  bio: string;
-  avatarUrl: string;
-  login: string;
-}
+import UserProps from '../../interfaces/UserProps';
 
 const UserCard: React.FC<UserProps> = ({
   name,
