@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -28,39 +28,40 @@ const Home: React.FC = () => {
     localStorage.setItem('@GithubViewer:users', JSON.stringify(users));
   }, [users]);
 
-  async function handleAddUser(
-    event: FormEvent<HTMLFormElement>,
-  ): Promise<void> {
-    event.preventDefault();
+  const handleAddUser = useCallback(
+    async (event: FormEvent<HTMLFormElement>): Promise<void> => {
+      event.preventDefault();
 
-    if (!newUser) {
-      setInputError('digite o nome do usuário');
-      return;
-    }
+      if (!newUser) {
+        setInputError('digite o nome do usuário');
+        return;
+      }
 
-    try {
-      const response = await api.get(newUser);
+      try {
+        const response = await api.get(newUser);
 
-      const {
-        login,
-        name,
-        bio,
-        email,
-        avatar_url: avatarUrl,
-        followers_url: followers,
-        following_url: following,
-      } = response.data;
+        const {
+          login,
+          name,
+          bio,
+          email,
+          avatar_url: avatarUrl,
+          followers_url: followers,
+          following_url: following,
+        } = response.data;
 
-      setUsers([
-        ...users,
-        { login, name, bio, email, avatarUrl, followers, following },
-      ]);
-      setInputError('');
-      history.push(`/details/${login}`);
-    } catch (err) {
-      setInputError('Erro na busca por esse repositório');
-    }
-  }
+        setUsers([
+          ...users,
+          { login, name, bio, email, avatarUrl, followers, following },
+        ]);
+        setInputError('');
+        history.push(`/details/${login}`);
+      } catch (err) {
+        setInputError('Erro na busca por esse repositório');
+      }
+    },
+    [history, newUser, users],
+  );
 
   return (
     <>
