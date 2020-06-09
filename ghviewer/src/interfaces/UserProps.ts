@@ -4,6 +4,4 @@ export default interface UserProps {
   bio: string;
   email?: string;
   avatarUrl: string;
-  followers?: string;
-  following?: string;
 }
