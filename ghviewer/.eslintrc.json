@@ -29,6 +29,7 @@
       "prettier"
     ],
     "rules": {
+      "no-extra-boolean-cast": "off",
       "react/jsx-one-expression-per-line": "off",
       "prettier/prettier": "error",
       "react-hooks/rules-of-hooks": "error",
