@@ -40,20 +40,9 @@ const Home: React.FC = () => {
       try {
         const response = await api.get(newUser);
 
-        const {
-          login,
-          name,
-          bio,
-          email,
-          avatar_url: avatarUrl,
-          followers_url: followers,
-          following_url: following,
-        } = response.data;
+        const { login, name, bio, avatar_url: avatarUrl } = response.data;
 
-        setUsers([
-          ...users,
-          { login, name, bio, email, avatarUrl, followers, following },
-        ]);
+        setUsers([...users, { login, name, bio, avatarUrl }]);
         setInputError('');
         history.push(`/details/${login}`);
       } catch (err) {
