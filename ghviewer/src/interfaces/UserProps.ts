@@ -1,5 +1,5 @@
 export default interface UserProps {
-  login: string;
+  login?: string;
   name: string;
   bio: string;
   email?: string;
