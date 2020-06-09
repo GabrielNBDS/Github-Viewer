@@ -3,12 +3,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 
 import { Repo } from './styles';
 
-interface RepoProps {
-  name: string;
-  description: string;
-  htmlUrl: string;
-  stargazersCount: string;
-}
+import RepoProps from '../../interfaces/RepoProps';
 
 const UserRepo: React.FC<RepoProps> = ({
   name,
