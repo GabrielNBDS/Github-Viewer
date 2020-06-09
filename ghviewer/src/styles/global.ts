@@ -23,6 +23,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  strong {
+    font-weight: 700;
+  }
+
   a {
     color: #333;
     text-decoration: none;
