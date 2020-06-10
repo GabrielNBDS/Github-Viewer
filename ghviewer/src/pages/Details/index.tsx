@@ -110,7 +110,7 @@ const Details: React.FC = () => {
           // orders the repos by the number of stars
           const orderedRepos = filteredRepos.sort(
             (a: RepoProps, b: RepoProps) =>
-              (Number(a.stargazersCount) - Number(b.stargazersCount)) * -1,
+              (Number(b.stargazersCount) - Number(a.stargazersCount)),
           );
 
           setRepos(orderedRepos);
