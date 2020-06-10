@@ -36,6 +36,11 @@ const Details: React.FC = () => {
   const [repos, setRepos] = useState<RepoProps[]>();
   const [followers, setFolloweres] = useState<number>();
   const [following, setFollowing] = useState<number>();
+  const [notFoundMessage, setNotFoundMessage] = useState('');
+
+  setTimeout(() => {
+    setNotFoundMessage('Usuário não encontrado.');
+  }, 2000);
 
   useEffect(() => {
     api
@@ -164,7 +169,7 @@ const Details: React.FC = () => {
           )}
         </>
       ) : (
-        <UserNotFound>Usuário não encontrado.</UserNotFound>
+        <UserNotFound>{notFoundMessage}</UserNotFound>
       )}
     </>
   );
