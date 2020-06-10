@@ -5,6 +5,7 @@ export const Repo = styled.a`
   flex: 1;
   height: 100px;
   padding: 24px;
+  margin-bottom: 20px;
 
   background: #fff;
   border-radius: 10px;

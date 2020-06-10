@@ -56,3 +56,7 @@ export const Info = styled.div`
     }
   }
 `;
+
+export const ReposContainer = styled.section`
+  margin-top: 80px;
+`;
