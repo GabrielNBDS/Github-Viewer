@@ -12,7 +12,7 @@ const UserRepo: React.FC<RepoProps> = ({
   stargazersCount,
 }: RepoProps) => {
   return (
-    <Repo href={htmlUrl}>
+    <Repo href={htmlUrl} target="_blank">
       <div>
         <strong>{name}</strong>
         <p>{description}</p>
