@@ -6,7 +6,13 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 import UserRepo from '../../components/UserRepo';
-import { UserInfo, Info, ReposContainer, LoadingContainer } from './styles';
+import {
+  UserInfo,
+  Info,
+  ReposContainer,
+  LoadingContainer,
+  UserNotFound,
+} from './styles';
 
 import RepoProps from '../../interfaces/RepoProps';
 import UserProps from '../../interfaces/UserProps';
@@ -47,7 +53,8 @@ const Details: React.FC = () => {
           avatar_url: avatarUrl,
         } = response.data;
         setUser({ login, name, bio, email, avatarUrl });
-      });
+      })
+      .catch(() => setUser(null));
 
     if (!!user) {
       api
@@ -156,7 +163,9 @@ const Details: React.FC = () => {
             </LoadingContainer>
           )}
         </>
-      ) : null}
+      ) : (
+        <UserNotFound>Usuário não encontrado.</UserNotFound>
+      )}
     </>
   );
 };

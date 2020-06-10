@@ -81,3 +81,11 @@ export const LoadingContainer = styled.div`
     animation: ${rotate} 2s linear infinite;
   }
 `;
+
+export const UserNotFound = styled.strong`
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  padding-top: 100px;
+`;
