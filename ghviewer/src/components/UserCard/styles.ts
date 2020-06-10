@@ -6,7 +6,7 @@ export const Card = styled.div`
 
   margin-bottom: 24px;
 
-  background: #fff;
+  background: ${(props) => props.theme.colors.repoBackground};
   border-radius: 10px;
   padding: 24px;
 
@@ -21,10 +21,12 @@ export const Card = styled.div`
 
     strong {
       font-size: 32px;
+      color: ${(props) => props.theme.colors.text};
     }
 
     p {
       font-size: 20px;
+      color: ${(props) => props.theme.colors.text};
     }
   }
 `;

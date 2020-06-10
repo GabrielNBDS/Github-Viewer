@@ -7,7 +7,7 @@ export const Repo = styled.a`
   padding: 24px;
   margin-bottom: 20px;
 
-  background: #fff;
+  background: ${(props) => props.theme.colors.repoBackground};
   border-radius: 10px;
 
   justify-content: space-between;
@@ -16,10 +16,12 @@ export const Repo = styled.a`
   div {
     strong {
       font-size: 32px;
+      color: ${(props) => props.theme.colors.text};
     }
 
     p {
       font-size: 16px;
+      color: ${(props) => props.theme.colors.text};
     }
   }
 
@@ -27,6 +29,7 @@ export const Repo = styled.a`
     display: flex;
     align-items: center;
     font-size: 20px;
+    color: ${(props) => props.theme.colors.text};
 
     svg {
       margin-right: 10px;

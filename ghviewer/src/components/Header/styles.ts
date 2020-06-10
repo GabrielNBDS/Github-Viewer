@@ -5,7 +5,14 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  a {
-    font-size: 24px;
+  div {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 24px;
+      margin-left: 24px;
+      color: ${(props) => props.theme.colors.text};
+    }
   }
 `;
