@@ -13,6 +13,11 @@ export const Repo = styled.a`
   justify-content: space-between;
   align-items: center;
 
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateX(10px);
+  }
+
   div {
     strong {
       font-size: 32px;
