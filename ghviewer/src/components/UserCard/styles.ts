@@ -10,6 +10,11 @@ export const Card = styled.div`
   border-radius: 10px;
   padding: 24px;
 
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateX(10px);
+  }
+
   img {
     width: 64px;
     height: 64px;
