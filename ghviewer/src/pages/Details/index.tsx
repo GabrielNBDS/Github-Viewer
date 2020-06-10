@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
+import { FiLoader } from 'react-icons/fi';
 
 import api from '../../services/api';
 
 import Header from '../../components/Header';
 import UserRepo from '../../components/UserRepo';
-import { UserInfo, Info, ReposContainer } from './styles';
+import { UserInfo, Info, ReposContainer, LoadingContainer } from './styles';
 
 import RepoProps from '../../interfaces/RepoProps';
 import UserProps from '../../interfaces/UserProps';
@@ -110,42 +111,50 @@ const Details: React.FC = () => {
       <Header />
       {!!user ? (
         <>
-          <UserInfo>
-            <header>
-              <img src={user.avatarUrl} alt="user" />
-              <div>
-                <strong>{user.name}</strong>
-                <p>{user.bio}</p>
-              </div>
-            </header>
-            <div className="infos">
-              <Info>
-                <p>Email</p>
-                <strong>{!!user.email ? user.email : 'Email privado'}</strong>
-              </Info>
-              <Info>
-                <p>Followers</p>
-                <strong>{followers}</strong>
-              </Info>
-              <Info>
-                <p>Following</p>
-                <strong>{following}</strong>
-              </Info>
-            </div>
-          </UserInfo>
           {!!repos ? (
-            <ReposContainer>
-              {repos.map((repo) => (
-                <UserRepo
-                  key={repo.htmlUrl}
-                  name={repo.name}
-                  description={repo.description}
-                  htmlUrl={repo.htmlUrl}
-                  stargazersCount={repo.stargazersCount}
-                />
-              ))}
-            </ReposContainer>
-          ) : null}
+            <>
+              <UserInfo>
+                <header>
+                  <img src={user.avatarUrl} alt="user" />
+                  <div>
+                    <strong>{user.name}</strong>
+                    <p>{user.bio}</p>
+                  </div>
+                </header>
+                <div className="infos">
+                  <Info>
+                    <p>Email</p>
+                    <strong>
+                      {!!user.email ? user.email : 'Email privado'}
+                    </strong>
+                  </Info>
+                  <Info>
+                    <p>Followers</p>
+                    <strong>{followers}</strong>
+                  </Info>
+                  <Info>
+                    <p>Following</p>
+                    <strong>{following}</strong>
+                  </Info>
+                </div>
+              </UserInfo>
+              <ReposContainer>
+                {repos.map((repo) => (
+                  <UserRepo
+                    key={repo.htmlUrl}
+                    name={repo.name}
+                    description={repo.description}
+                    htmlUrl={repo.htmlUrl}
+                    stargazersCount={repo.stargazersCount}
+                  />
+                ))}
+              </ReposContainer>
+            </>
+          ) : (
+            <LoadingContainer>
+              <FiLoader size={32} />
+            </LoadingContainer>
+          )}
         </>
       ) : null}
     </>

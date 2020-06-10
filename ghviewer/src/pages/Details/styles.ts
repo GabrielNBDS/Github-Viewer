@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const UserInfo = styled.section`
   margin-top: 80px;
@@ -59,4 +59,25 @@ export const Info = styled.div`
 
 export const ReposContainer = styled.section`
   margin-top: 80px;
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  svg {
+    margin-top: 100px;
+    color: ${(props) => props.theme.colors.text};
+    animation: ${rotate} 2s linear infinite;
+  }
 `;
