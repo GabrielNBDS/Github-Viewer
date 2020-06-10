@@ -85,6 +85,7 @@ const Details: React.FC = () => {
           },
         })
         .then((response) => {
+          // if the repo is a fork returns null
           const unfilteredRepos = response.data.map((repo: ApiRepoProps) => {
             const {
               name,
@@ -105,6 +106,7 @@ const Details: React.FC = () => {
             return null;
           });
 
+          // removes the nulls of the array
           const filteredRepos = unfilteredRepos.filter(Boolean);
 
           // orders the repos by the number of stars
