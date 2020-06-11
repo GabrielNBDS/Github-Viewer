@@ -4,7 +4,7 @@
 <h1 align="center">Github Viewer</h1>
 
 <h2 align="center">Link para live demo <a href="https://github-viewer.now.sh/">aqui</a>.
-<h2 align="center">Link para o design no figma <a href="https://github-viewer.now.sh/">aqui</a>.
+<h2 align="center">Link para o design no figma <a href="https://www.figma.com/file/dwiN6v5TpocxyOZzDL39lj/Github-viewer?node-id=0%3A1">aqui</a>.
 
 # Sumário
 
