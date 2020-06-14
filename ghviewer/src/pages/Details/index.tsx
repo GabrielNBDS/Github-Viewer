@@ -40,7 +40,7 @@ const Details: React.FC = () => {
 
   setTimeout(() => {
     setNotFoundMessage('Usuário não encontrado.');
-  }, 5000);
+  }, 15000);
 
   useEffect(() => {
     api
